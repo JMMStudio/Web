@@ -1,5 +1,5 @@
-# Docker-pyvideotrans
+# Webapp de herramientas de IA generativa
 
-Este repositorio contiene utilidades para traducción y generación de vídeo. Se ha añadido una carpeta `webapp` con una pequeña aplicación web que recopila diez generadores de vídeo con IA y permite traducir la interfaz a 20 idiomas.
+Esta aplicación web muestra un listado de diez generadores de vídeo con IA y permite cambiar el idioma de la interfaz entre los 20 idiomas más hablados del mundo.
 
-Consulta `webapp/README.md` para más detalles.
+Para abrir la web, abre `index.html` en un navegador moderno.

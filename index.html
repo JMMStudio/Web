@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="title">Repositorio de generadores de vídeo con IA</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 2em; }
+select { margin-bottom: 1em; }
+</style>
+</head>
+<body>
+<label for="lang" data-i18n="select">Seleccionar idioma:</label>
+<select id="lang">
+  <option value="es">Español</option>
+  <option value="en">English</option>
+  <option value="zh">中文</option>
+  <option value="hi">हिन्दी</option>
+  <option value="ar">العربية</option>
+  <option value="pt">Português</option>
+  <option value="bn">বাংলা</option>
+  <option value="ru">Русский</option>
+  <option value="ja">日本語</option>
+  <option value="pa">ਪੰਜਾਬੀ</option>
+  <option value="de">Deutsch</option>
+  <option value="id">Bahasa Indonesia</option>
+  <option value="fr">Français</option>
+  <option value="ko">한국어</option>
+  <option value="vi">Tiếng Việt</option>
+  <option value="te">తెలుగు</option>
+  <option value="mr">मराठी</option>
+  <option value="ta">தமிழ்</option>
+  <option value="tr">Türkçe</option>
+  <option value="it">Italiano</option>
+</select>
+<h1 data-i18n="heading">Generadores de vídeo con IA populares</h1>
+<p data-i18n="description">A continuación encontrarás 10 herramientas de IA generativa para crear vídeos.</p>
+<ul id="tools">
+  <li>Synthesia</li>
+  <li>Pictory</li>
+  <li>Runway</li>
+  <li>Lumen5</li>
+  <li>InVideo</li>
+  <li>Veed.io</li>
+  <li>Kapwing</li>
+  <li>Fliki</li>
+  <li>Steve AI</li>
+  <li>DeepBrain</li>
+</ul>
+<script>
+const translations = {
+  es: {
+    title: "Repositorio de generadores de vídeo con IA",
+    heading: "Generadores de vídeo con IA populares",
+    description: "A continuación encontrarás 10 herramientas de IA generativa para crear vídeos.",
+    select: "Seleccionar idioma:"
+  },
+  en: {
+    title: "AI Video Generators Repository",
+    heading: "Popular AI video generators",
+    description: "Below are 10 generative AI tools to create videos.",
+    select: "Select language:"
+  },
+  zh: {
+    title: "AI视频生成器仓库",
+    heading: "热门AI视频生成器",
+    description: "以下是用于制作视频的10个生成式AI工具。",
+    select: "选择语言:"
+  },
+  hi: {
+    title: "एआई वीडियो जेनरेटर भंडार",
+    heading: "लोकप्रिय एआई वीडियो जेनरेटर",
+    description: "नीचे वीडियो बनाने के लिए 10 जनरेटिव एआई टूल्स हैं।",
+    select: "भाषा चुनें:"
+  },
+  ar: {
+    title: "مستودع مولدات الفيديو بالذكاء الاصطناعي",
+    heading: "مولدات الفيديو بالذكاء الاصطناعي الشائعة",
+    description: "فيما يلي 10 أدوات ذكاء اصطناعي توليدية لإنشاء مقاطع فيديو.",
+    select: "اختر اللغة:"
+  },
+  pt: {
+    title: "Repositório de geradores de vídeo IA",
+    heading: "Geradores de vídeo IA populares",
+    description: "Abaixo estão 10 ferramentas de IA generativa para criar vídeos.",
+    select: "Selecionar idioma:"
+  },
+  bn: {
+    title: "এআই ভিডিও জেনারেটর সংগ্রহ",
+    heading: "জনপ্রিয় এআই ভিডিও জেনারেটর",
+    description: "নীচে ভিডিও তৈরির জন্য 10টি জেনারেটিভ এআই টুল রয়েছে।",
+    select: "ভাষা নির্বাচন করুন:"
+  },
+  ru: {
+    title: "Репозиторий генераторов видео с ИИ",
+    heading: "Популярные ИИ-генераторы видео",
+    description: "Ниже представлены 10 инструментов генеративного ИИ для создания видео.",
+    select: "Выберите язык:"
+  },
+  ja: {
+    title: "AI動画生成ツールリポジトリ",
+    heading: "人気のAI動画ジェネレーター",
+    description: "以下は動画を作成するための生成AIツール10選です。",
+    select: "言語を選択:"
+  },
+  pa: {
+    title: "ਏਆਈ ਵੀਡੀਓ ਜਨਰੇਟਰ ਭੰਡਾਰ",
+    heading: "ਪ੍ਰਸਿੱਧ ਏਆਈ ਵੀਡੀਓ ਜਨਰੇਟਰ",
+    description: "ਹੇਠਾਂ ਵੀਡੀਓ ਬਣਾਉਣ ਲਈ 10 ਜਨਰੈਟਿਵ AI ਟੂਲ ਦਿੱਤੇ ਗਏ ਹਨ।",
+    select: "ਭਾਸ਼ਾ ਚੁਣੋ:"
+  },
+  de: {
+    title: "KI-Video-Generatoren-Repository",
+    heading: "Beliebte KI-Video-Generatoren",
+    description: "Im Folgenden findest du 10 generative KI-Tools zur Erstellung von Videos.",
+    select: "Sprache wählen:"
+  },
+  id: {
+    title: "Repositori Generator Video AI",
+    heading: "Generator video AI populer",
+    description: "Berikut 10 alat AI generatif untuk membuat video.",
+    select: "Pilih bahasa:"
+  },
+  fr: {
+    title: "Répertoire des générateurs vidéo IA",
+    heading: "Générateurs vidéo IA populaires",
+    description: "Vous trouverez ci-dessous 10 outils d'IA générative pour créer des vidéos.",
+    select: "Choisir la langue:"
+  },
+  ko: {
+    title: "AI 동영상 생성기 저장소",
+    heading: "인기 있는 AI 동영상 생성기",
+    description: "아래는 동영상을 만들기 위한 10가지 생성형 AI 도구입니다.",
+    select: "언어 선택:"
+  },
+  vi: {
+    title: "Kho lưu trữ trình tạo video AI",
+    heading: "Trình tạo video AI phổ biến",
+    description: "Dưới đây là 10 công cụ AI tạo video.",
+    select: "Chọn ngôn ngữ:"
+  },
+  te: {
+    title: "AI వీడియో జనరేటర్ నిల్వ",
+    heading: "ప్రచలిత AI వీడియో జనరేటర్లు",
+    description: "క్రింద వీడియోలు సృష్టించేందుకు 10 జెనరేటివ్ AI సాధనాలు ఉన్నాయి.",
+    select: "భాషను ఎంచుకోండి:"
+  },
+  mr: {
+    title: "AI व्हिडिओ जनरेटर्स संग्रह",
+    heading: "लोकप्रिय AI व्हिडिओ जनरेटर्स",
+    description: "खाली व्हिडिओ तयार करण्यासाठी 10 जनरेटिव AI साधने दिली आहेत.",
+    select: "भाषा निवडा:"
+  },
+  ta: {
+    title: "ஏஐ வீடியோ ஜெனரேட்டர் களஞ்சியம்",
+    heading: "பிரபலமான ஏஐ வீடியோ ஜெனரேட்டர்கள்",
+    description: "கீழே வீடியோக்கள் உருவாக்க 10 ஜெனரட்டிவ் AI கருவிகள் உள்ளன.",
+    select: "மொழியைத் தேர்ந்தெடுக்கவும்:"
+  },
+  tr: {
+    title: "Yapay Zeka Video Üreteç Deposu",
+    heading: "Popüler yapay zeka video üreteçleri",
+    description: "Aşağıda video oluşturmak için 10 üretken yapay zeka aracı bulunmaktadır.",
+    select: "Dil seçin:"
+  },
+  it: {
+    title: "Repository di generatori video IA",
+    heading: "Generatori video IA popolari",
+    description: "Di seguito trovi 10 strumenti di IA generativa per creare video.",
+    select: "Seleziona lingua:"
+  }
+};
+
+function translatePage(lang) {
+  const dict = translations[lang] || translations.es;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) {
+      el.textContent = dict[key];
+    }
+  });
+}
+
+document.getElementById('lang').addEventListener('change', (e) => {
+  translatePage(e.target.value);
+});
+
+translatePage('es');
+</script>
+</body>
+</html>
