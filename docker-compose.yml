@@ -1,0 +1,25 @@
+# version: '3.8' # Puedes quitar esta línea si quieres eliminar la advertencia
+
+services:
+  pyvideotrans:
+    build: .
+    container_name: pyvideotrans-app
+    restart: unless-stopped
+    ports:
+      - "9011:9011"
+    volumes:
+      - ./media:/app/media
+      - ./models:/app/models
+      - ./.cache:/root/.cache
+    environment:
+      - TZ=Etc/UTC
+      - HF_HOME=/root/.cache/huggingface
+      - HF_HUB_OFFLINE=0
+      - TRANSFORMERS_OFFLINE=0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
